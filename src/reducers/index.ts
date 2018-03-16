@@ -50,6 +50,9 @@ function codeList(state: Code[] = [], action: Action) {
     case SET_CODE_LIST:
       return action.codeList;
     case ADD_CODE:
+      if (!action.code) {
+        return state;
+      }
       const id = state.length ? state[state.length - 1].id + 1 : 1;
       return [...state, { id, value: action.code, date: Date.now() }];
     case DELETE_CODE:

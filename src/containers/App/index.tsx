@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch, Action } from 'redux';
 import { ReduxState } from '../../reducers';
 import { addCode } from '../../actions';
+import msg from '../../lib/message';
 import ActiveCode from '../../components/ActiveCode';
 import CodeList from '../../components/CodeList';
 
@@ -62,23 +63,29 @@ interface Props extends ReduxState {
 }
 
 class App extends React.Component<Props> {
-  // componentDidMount() {
-  //   const { dispatch } = this.props;
-  //   console.log(this.props);
+  inputElement: HTMLTextAreaElement;
 
-  //   const stateString = localStorage.getItem('redux-state');
+  copy = (activeCode: string) => {
+    if (!activeCode) {
+      return;
+    }
+    this.inputElement.select();
+    document.execCommand('copy');
+    msg.showToast({ content: 'copyed' });
+  };
 
-  //   if (stateString) {
-  //     const state: ReduxState = JSON.parse(stateString);
-  //     dispatch(setActiveCode(state.activeCode));
-  //     dispatch(setCodeList(state.codeList));
-  //   }
-  // }
+  read = () => {
+    location.hash = '#/reader';
+  };
+
   render() {
     const { activeCode, codeList, onSave } = this.props;
     return (
       <div>
-        <ActiveCode>{activeCode}</ActiveCode>
+        <ActiveCode
+          inputRef={el => (this.inputElement = el)}
+          code={activeCode}
+        />
         <div style={styles.history}>
           <div style={styles.historyTitle}>History</div>
           <div style={styles.codeList}>
@@ -87,12 +94,22 @@ class App extends React.Component<Props> {
         </div>
         <div style={styles.operation}>
           <div style={styles.btnWrapper}>
+            <button style={styles.btn} onClick={this.read}>
+              read
+            </button>
+          </div>
+          <div style={styles.btnWrapper}>
             <button style={styles.btn} onClick={onSave.bind(this, activeCode)}>
               save
             </button>
           </div>
           <div style={styles.btnWrapper}>
-            <button style={styles.btn}>copy</button>
+            <button
+              style={styles.btn}
+              onClick={this.copy.bind(this, activeCode)}
+            >
+              copy
+            </button>
           </div>
           <div style={styles.btnWrapper}>
             <button style={styles.btn}>open</button>
