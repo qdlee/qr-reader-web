@@ -1,8 +1,10 @@
 import { Code } from '../reducers';
-export const SET_ACTIVE_CODE = 'SET_ACTIVE_CODE';
-export const ADD_CODE = 'ADD_CODE';
-export const DELETE_CODE = 'DELETE_CODE';
-export const SET_CODE_LIST = 'SET_CODE_LIST';
+import {
+  SET_ACTIVE_CODE,
+  ADD_CODE,
+  DELETE_CODE,
+  SET_CODE_LIST,
+} from '../constants';
 
 export function setActiveCode(code: string) {
   return {
