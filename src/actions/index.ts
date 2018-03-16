@@ -20,7 +20,7 @@ export function addCode(code: string) {
   };
 }
 
-export function deleteCode(id: string) {
+export function deleteCode(id: number) {
   return {
     type: DELETE_CODE,
     id,

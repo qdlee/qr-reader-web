@@ -58,4 +58,7 @@ function codeList(state: Code[] = [], action: Action) {
       return state;
   }
 }
-export default combineReducers({ activeCode, codeList });
+export default combineReducers<{ activeCode?: string; codeList?: Code[] }>({
+  activeCode,
+  codeList,
+});
