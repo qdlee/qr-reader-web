@@ -2,7 +2,7 @@ import * as React from 'react';
 import QrReader from 'react-qr-reader';
 import { Dispatch, Action } from 'redux';
 import { connect } from 'react-redux';
-import { setActiveCode } from '../actions';
+import { setActiveCode } from '../../actions';
 
 const styles: { [propName: string]: React.CSSProperties } = {
   container: {

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Code as CodeItem } from '../reducers';
-import Code from './Code';
-import Divider from '../components/Divider';
+import { Code as CodeItem } from '../../reducers';
+import Code from '../Code';
+import Divider from '../Divider';
 
 interface Props {
   codeList: CodeItem[];

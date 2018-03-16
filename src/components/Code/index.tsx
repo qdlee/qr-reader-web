@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Code as CodeItem } from '../reducers';
+import { Code as CodeItem } from '../../reducers';
 
 const styles = {
   height: 40,
