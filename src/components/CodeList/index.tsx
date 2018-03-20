@@ -5,17 +5,35 @@ import Divider from '../Divider';
 
 interface Props {
   codeList: CodeItem[];
+  onCodeDelete: (id: number) => void;
 }
 
-const CodeList: React.SFC<Props> = props => (
-  <div>
-    {props.codeList.map(code => (
-      <React.Fragment key={code.id}>
-        <Code code={code} />
-        <Divider />
-      </React.Fragment>
-    ))}
-  </div>
-);
+class CodeList extends React.PureComponent<Props> {
+  state = {
+    touchCode: 0,
+  };
+
+  codeTouch = (id: number) => {
+    this.setState({ touchCode: id });
+  };
+
+  render() {
+    return (
+      <div>
+        {this.props.codeList.map(code => (
+          <React.Fragment key={code.id}>
+            <Code
+              code={code}
+              onCodeTouch={this.codeTouch}
+              touchCode={this.state.touchCode}
+              onCodeDelete={this.props.onCodeDelete}
+            />
+            <Divider />
+          </React.Fragment>
+        ))}
+      </div>
+    );
+  }
+}
 
 export default CodeList;

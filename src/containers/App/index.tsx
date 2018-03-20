@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch, Action } from 'redux';
 import { ReduxState } from '../../reducers';
-import { addCode } from '../../actions';
+import { addCode, deleteCode } from '../../actions';
 import msg from '../../lib/message';
 import ActiveCode from '../../components/ActiveCode';
 import CodeList from '../../components/CodeList';
@@ -60,6 +60,7 @@ interface Props extends ReduxState {
     type: string;
     code: string;
   };
+  onDelete: (id: number) => { type: string; id: number };
 }
 
 class App extends React.Component<Props> {
@@ -89,7 +90,7 @@ class App extends React.Component<Props> {
         <div style={styles.history}>
           <div style={styles.historyTitle}>History</div>
           <div style={styles.codeList}>
-            <CodeList codeList={codeList} />
+            <CodeList codeList={codeList} onCodeDelete={this.props.onDelete} />
           </div>
         </div>
         <div style={styles.operation}>
@@ -130,6 +131,7 @@ function mapStateToProps(state: ReduxState) {
 function mapDispatchToProps(dispatch: Dispatch<Action>) {
   return {
     onSave: (code: string) => dispatch(addCode(code)),
+    onDelete: (id: number) => dispatch(deleteCode(id)),
   };
 }
 
