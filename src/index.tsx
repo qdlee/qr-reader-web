@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 import App from './containers/App';
 import Reader from './containers/Reader';
+import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 const stateString = localStorage.getItem('redux-state');
@@ -31,3 +32,4 @@ render(
   </Provider>,
   document.getElementById('root')
 );
+registerServiceWorker();
