@@ -45,10 +45,17 @@ const styles: { [propName: string]: React.CSSProperties } = {
   btnWrapper: {
     flex: 1,
     height: '100%',
+    marginLeft: '-1px',
   },
   btn: {
+    padding: 0,
     height: '100%',
     width: '100%',
+    backgroundColor: '#b3d465',
+    color: '#fff',
+    fontSize: '16px',
+    border: 'solid 1px #7d9e2e',
+    outline: 0,
   },
 };
 
@@ -94,14 +101,14 @@ class App extends React.Component<Props> {
           </div>
         </div>
         <div style={styles.operation}>
-          <div style={styles.btnWrapper}>
+          <div style={{ ...styles.btnWrapper, marginLeft: 0 }}>
             <button style={styles.btn} onClick={this.read}>
-              read
+              Read
             </button>
           </div>
           <div style={styles.btnWrapper}>
             <button style={styles.btn} onClick={onSave.bind(this, activeCode)}>
-              save
+              Save
             </button>
           </div>
           <div style={styles.btnWrapper}>
@@ -109,11 +116,11 @@ class App extends React.Component<Props> {
               style={styles.btn}
               onClick={this.copy.bind(this, activeCode)}
             >
-              copy
+              Copy
             </button>
           </div>
           <div style={styles.btnWrapper}>
-            <button style={styles.btn}>open</button>
+            <button style={styles.btn}>Open</button>
           </div>
         </div>
       </div>

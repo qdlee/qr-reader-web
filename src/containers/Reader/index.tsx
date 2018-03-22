@@ -17,6 +17,17 @@ const styles: { [propName: string]: React.CSSProperties } = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    height: 200,
+  },
+  btn: {
+    padding: 0,
+    height: 30,
+    width: 80,
+    backgroundColor: '#b3d465',
+    color: '#fff',
+    fontSize: '16px',
+    border: 'solid 1px #7d9e2e',
+    outline: 0,
   },
 };
 
@@ -51,9 +62,12 @@ class Reader extends React.PureComponent<Props, State> {
       <div style={styles.error}>
         <div>
           <p>There is an error occured.</p>
-          <div>
-            <button>retry</button>
-            <button onClick={this.goBack}>return</button>
+          <div style={{ marginTop: 30 }}>
+            <button style={styles.btn}>Retry</button>
+            <span style={{ display: 'inline-block', width: 30 }} />
+            <button style={styles.btn} onClick={this.goBack}>
+              Return
+            </button>
           </div>
         </div>
       </div>
