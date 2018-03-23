@@ -86,6 +86,10 @@ class App extends React.Component<Props> {
     location.hash = '#/reader';
   };
 
+  open = (activeCode: string) => {
+    window.open(activeCode, '_blank');
+  };
+
   render() {
     const { activeCode, codeList, onSave } = this.props;
     return (
@@ -120,7 +124,12 @@ class App extends React.Component<Props> {
             </button>
           </div>
           <div style={styles.btnWrapper}>
-            <button style={styles.btn}>Open</button>
+            <button
+              style={styles.btn}
+              onClick={this.open.bind(this, activeCode)}
+            >
+              Open
+            </button>
           </div>
         </div>
       </div>
