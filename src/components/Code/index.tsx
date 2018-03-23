@@ -93,7 +93,7 @@ class Code extends React.PureComponent<Props> {
             transition: 'transform .2s linear',
           }}
         >
-          {this.props.code.value}
+          <div style={{ marginLeft: 15 }}>{this.props.code.value}</div>
         </div>
         <div
           style={{
@@ -103,7 +103,7 @@ class Code extends React.PureComponent<Props> {
             zIndex: 1,
             width: btnWidth,
             height: '100%',
-            backgroundColor: 'red',
+            backgroundColor: '#FF3333',
             color: '#fff',
             textAlign: 'center',
           }}
@@ -111,7 +111,7 @@ class Code extends React.PureComponent<Props> {
             this.props.onCodeDelete(this.props.code.id);
           }}
         >
-          delete
+          Delete
         </div>
       </div>
     );
