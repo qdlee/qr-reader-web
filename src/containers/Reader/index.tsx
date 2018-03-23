@@ -63,7 +63,12 @@ class Reader extends React.PureComponent<Props, State> {
         <div>
           <p>There is an error occured.</p>
           <div style={{ marginTop: 30 }}>
-            <button style={styles.btn}>Retry</button>
+            <button
+              style={styles.btn}
+              onClick={() => this.setState({ isError: false })}
+            >
+              Retry
+            </button>
             <span style={{ display: 'inline-block', width: 30 }} />
             <button style={styles.btn} onClick={this.goBack}>
               Return
@@ -89,4 +94,4 @@ function mapDispatchToProps(dispatch: Dispatch<Action>) {
   };
 }
 
-export default connect(mapDispatchToProps)(Reader);
+export default connect(null, mapDispatchToProps)(Reader);
