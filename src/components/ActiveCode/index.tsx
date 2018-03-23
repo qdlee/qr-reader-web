@@ -21,14 +21,16 @@ const ActiveCode: React.SFC<{
         style={{
           width: '100%',
           height: '100%',
-          padding: 0,
+          padding: 5,
           border: 0,
           outline: 0,
           resize: 'none',
+          fontSize: 15,
+          textAlign: 'center',
         }}
         readOnly={true}
         ref={props.inputRef}
-        defaultValue={props.code}
+        value={props.code}
       />
     </div>
   );
