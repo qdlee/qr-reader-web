@@ -88,8 +88,10 @@ class Reader extends React.PureComponent<Props, State> {
 function mapDispatchToProps(dispatch: Dispatch<Action>) {
   return {
     handleScan: (code: string) => {
-      dispatch(setActiveCode(code));
-      history.back();
+      if (code) {
+        dispatch(setActiveCode(code));
+        history.back();
+      }
     },
   };
 }
