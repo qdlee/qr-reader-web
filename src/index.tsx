@@ -4,8 +4,9 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
-import App from './containers/App';
+// import App from './containers/App';
 import Reader from './containers/Reader';
+import History from './containers/History';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
@@ -25,7 +26,7 @@ render(
   <Provider store={store}>
     <Router>
       <div>
-        <Route exect={true} path="/" component={App} />
+        <Route exect={true} path="/" component={History} />
         <Route exect={true} path="/reader" component={Reader} />
       </div>
     </Router>
